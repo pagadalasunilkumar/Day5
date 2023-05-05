@@ -1,0 +1,16 @@
+sum=0
+count=0
+
+echo "Generating 5 random 2-digit values..."
+for i in {1..5}
+do
+    value=$((RANDOM % 90 + 10)) 
+    echo "Value $i: $value"
+    sum=$((sum + value))       
+    count=$((count + 1))     
+done
+
+average=$((sum / count))     
+
+echo "Sum: $sum"
+echo "Average: $average"
