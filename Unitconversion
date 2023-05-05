@@ -1,0 +1,11 @@
+inches=42
+feet=$(echo "scale=2; $inches/12" | bc)
+echo "$inches inches = $feet feet"
+length_ft=60
+width_ft=40
+length_m=$(echo "scale=2; $length_ft*0.3048" | bc)
+width_m=$(echo "scale=2; $width_ft*0.3048" | bc)
+echo "Rectangular plot dimensions: $length_ft ft x $width_ft ft = $length_m meters x $width_m meters"
+area_ft=$(echo "scale=2; $length_ft*$width_ft*25" | bc)
+area_ac=$(echo "scale=3; $area_ft/43560" | bc)
+echo "Area of 25 plots: $area_ft square feet = $area_ac acres"
