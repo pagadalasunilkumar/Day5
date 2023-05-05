@@ -1,3 +1,0 @@
-two digits = $ ((RANDOM % 100))
-echo "two digit random number:" $ two digits
-
