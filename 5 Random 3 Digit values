@@ -1,0 +1,20 @@
+echo "Generating 5 random 3-digit values..."
+for i in {1..5}
+do
+    value=$((RANDOM % 900 + 100))  # Generate a random 3-digit value
+    echo "Value $i: $value"
+    if [[ $i -eq 1 ]]; then
+        min=$value
+        max=$value
+    else
+        if [[ $value -lt $min ]]; then
+            min=$value
+        fi
+        if [[ $value -gt $max ]]; then
+            max=$value
+        fi
+    fi
+done
+
+echo "Minimum value: $min"
+echo "Maximum value: $max"
