@@ -1,0 +1,8 @@
+result=$((RANDOM%2))
+
+# Check if the result is 0 (heads) or 1 (tails)
+if [[ $result -eq 0 ]]; then
+    echo "Heads"
+else
+    echo "Tails"
+fi
