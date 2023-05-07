@@ -1,0 +1,43 @@
+#!/bin/bash
+
+read -p "Enter the first number (a): " a
+read -p "Enter the second number (b): " b
+read -p "Enter the third number (c): " c
+
+# Calculate the results
+result1=$((a + b * c))
+result2=$((a % b + c))
+result3=$((c + a / b))
+result4=$((a * b + c))
+
+# Initialize max and min variables with the first result
+max=$result1
+min=$result1
+
+# Compare with other results to find maximum and minimum
+if [ $result2 -gt $max ]; then
+  max=$result2
+fi
+
+if [ $result2 -lt $min ]; then
+  min=$result2
+fi
+
+if [ $result3 -gt $max ]; then
+  max=$result3
+fi
+
+if [ $result3 -lt $min ]; then
+  min=$result3
+fi
+
+if [ $result4 -gt $max ]; then
+  max=$result4
+fi
+
+if [ $result4 -lt $min ]; then
+  min=$result4
+fi
+
+echo "Maximum result: $max"
+echo "Minimum result: $min"
