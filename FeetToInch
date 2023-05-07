@@ -1,0 +1,51 @@
+#!/bin/bash
+
+feet_to_inch() {
+    inch=$(echo "scale=2; $1 * 12" | bc)
+    echo "$inch"
+}
+
+inch_to_feet() {
+    feet=$(echo "scale=2; $1 / 12" | bc)
+    echo "$feet"
+}
+
+feet_to_meter() {
+    meter=$(echo "scale=2; $1 * 0.3048" | bc)
+    echo "$meter"
+}
+
+meter_to_feet() {
+    feet=$(echo "scale=2; $1 / 0.3048" | bc)
+    echo "$feet"
+}
+
+# Prompt the user to enter the conversion type
+echo "Select the conversion type:"
+echo "1. Feet to Inch"
+echo "2. Feet to Meter"
+echo "3. Inch to Feet"
+echo "4. Meter to Feet"
+
+read -p "Enter your choice (1-4): " conversion_type
+
+# Perform the conversion based on the user's choice
+if [ $conversion_type -eq 1 ]; then
+    read -p "Enter the length in feet: " feet
+    inch=$(feet_to_inch $feet)
+    echo "$feet feet is equal to $inch inches."
+elif [ $conversion_type -eq 2 ]; then
+    read -p "Enter the length in feet: " feet
+    meter=$(feet_to_meter $feet)
+    echo "$feet feet is equal to $meter meters."
+elif [ $conversion_type -eq 3 ]; then
+    read -p "Enter the length in inches: " inch
+    feet=$(inch_to_feet $inch)
+    echo "$inch inches is equal to $feet feet."
+elif [ $conversion_type -eq 4 ]; then
+    read -p "Enter the length in meters: " meter
+    feet=$(meter_to_feet $meter)
+    echo "$meter meters is equal to $feet feet."
+else
+    echo "Invalid choice. Please enter a number from 1 to 4."
+fi
